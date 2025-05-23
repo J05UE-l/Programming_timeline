@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const db = require('./config/db');
+const db = require('./config/database');
 const path = require('path');
 
 app.set('view engine', 'ejs');
@@ -15,6 +15,24 @@ db.connect()
 
     const userRoutes = require('./routes/userRoutes');
     app.use('/users', userRoutes);
+
+    const questionRoutes = require('./routes/questionRoutes');
+    app.use('/questions', questionRoutes);
+
+    const exerciseRoutes = require('./routes/exerciseRoutes');
+    app.use('/exercises', exerciseRoutes);
+
+    const lessonRoutes = require('./routes/lessonRoutes');
+    app.use('/lessons', lessonRoutes);
+
+    const contentRoutes = require('./routes/contentRoutes');
+    app.use('/content', contentRoutes);
+
+    const feedbackRoutes = require('./routes/feedbackRoutes');
+    app.use('/feedback', feedbackRoutes);
+
+    const progressRoutes = require('./routes/progressRoutes');
+    app.use('/progress', progressRoutes);
 
     const frontendRoutes = require('./routes/frontRoutes');
     app.use('/', frontendRoutes);
