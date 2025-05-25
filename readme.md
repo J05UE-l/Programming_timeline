@@ -1,6 +1,6 @@
-# Boilerplate MVC em Node.js com PostgreSQL
+# Programming timeline
 
-Este projeto é um boilerplate básico para uma aplicação Node.js seguindo o padrão MVC (Model-View-Controller), utilizando PostgreSQL como banco de dados.
+Este é um projeto que tem como objetivo ajudar as pessoas a aprender a programar com um guia de ordem de estudos, ajudando o usuário a não se perder na hora de estudar.
 
 ## Requisitos
 
