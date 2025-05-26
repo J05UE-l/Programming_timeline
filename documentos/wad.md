@@ -39,26 +39,119 @@ O progresso do usuário é documentado e armazenado, permitindo seguimento indiv
 
 ## <a name="c3"></a>3. Projeto da Aplicação Web
 
-### 3.1. Modelagem do banco de dados  (Semana 3)
+### 3.1. Modelagem do banco de dados (Semana 3)
+
 ![diagrama de modelagem relacional](/Projeto-individual/assets/Programming%20course.png)
 
-O diagrama descreve a estrutura da plataforma de aprendizado de programação, cada lição está relacionada a um conteúdo, que possui exercícios (como vídeos, múltipla escolha ou código), dos quais as questões podem fazer parte. O progresso do usuário é salvo, além de ter a opção de feedback para que o usuário possa destacar lições, assim, acompanhar seu desempenho e aprimorar a experiência de aprendizado.
+Este diagrama de Entidade-Relacionamento (DER) descreve um banco de dados projetado para gerenciar uma plataforma de aprendizado de programação gamificada. Ele permite o rastreamento de usuários, seu progresso nas lições, exercícios realizados e feedback fornecido, além de catalogar o conteúdo educacional e suas diferentes formas de apresentação.
+
+A estrutura do banco de dados é composta pelas seguintes tabelas principais:
+
+users (Usuários): Armazena informações sobre os usuários da plataforma, incluindo um ID único (pk, tipo UUID), nome de usuário (username, VARCHAR), email (email, VARCHAR) e senha (password, VARCHAR).
+
+content (Conteúdo): Representa os módulos do curso. Contém um ID único (pk, UUID) e a descrição do módulo (course_modules, TEXT).
+
+lessons (Lições): Representa as lições individuais dentro de cada módulo. Inclui um ID único (pk, UUID), título (title, VARCHAR), referência ao conteúdo (content_id, UUID), tipo (type, VARCHAR) e ordem (order, INT).
+
+exercises (Exercícios): Contém os exercícios associados a cada lição. Possui um ID único (pk, UUID), referência à lição (lesson_id, UUID), tipo (type, VARCHAR) e conteúdo (content, TEXT).
+
+questions (Questões): Armazena as questões específicas de cada exercício. Inclui um ID único (pk, UUID), referência ao exercício (exercise_id, UUID), texto da questão (question_text, TEXT), tipo (type, VARCHAR) e resposta (answer, TEXT).
+
+progress (Progresso): Registra o progresso do usuário em cada lição. Contém um ID único (pk, UUID), referência ao usuário (user_id, UUID), referência à lição (lesson_id, UUID) e status de conclusão (completed, BOOLEAN).
+
+feedback (Feedback): Armazena os comentários dos usuários sobre as lições. Possui um ID único (pk, UUID), referência ao usuário (user_id, UUID), referência à lição (lesson_id, UUID) e o comentário (comment, TEXT).
+
+Relacionamentos Chave:
+
+- Um usuário pode ter múltiplos registros de progresso e feedback
+- Um módulo de conteúdo pode ter múltiplas lições
+- Uma lição pode ter múltiplos exercícios
+- Um exercício pode ter múltiplas questões
+- O progresso e feedback são sempre associados a um usuário e uma lição específica
+
+Este design de banco de dados é flexível e extensível, permitindo adicionar novos tipos de conteúdo, exercícios e funcionalidades de gamificação, mantendo a integridade e organização dos dados.
 
 Arquivo de modelagem física do banco de dados: [init.sql](/Projeto-individual/scripts/init.sql)
 
 ### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
+
+A integração entre a camada de persistência e a lógica de negócio é garantida através dos modelos implementados na pasta models/. Cada modelo representa uma tabela do banco de dados e implementa os métodos necessários para interagir com ela. Abaixo, segue a relação entre os arquivos JavaScript responsáveis pela definição dos modelos e as respectivas tabelas do banco de dados:
+
+models/userModel.js: Define o modelo User, correspondente à tabela users. Implementa métodos para:
+- Buscar todos os usuários (getAll)
+- Buscar usuário por ID (getById)
+- Criar novo usuário (create)
+- Atualizar usuário existente (update)
+- Deletar usuário (delete)
+
+Estes modelos são utilizados pelos controllers localizados em controllers/, que implementam a lógica de acesso e manipulação dos dados via API. A estrutura do projeto mantém uma separação clara entre definição dos dados (models), regras de negócio (controllers) e rotas de acesso (routes), promovendo organização, reutilização e facilidade de manutenção.
 
 ### 3.2. Arquitetura (Semana 5)
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+![Diagrama de Arquitetura](/Projeto-individual/assets/architecture.png)
 
-**Instruções para criação do diagrama de arquitetura**  
-- **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
-- **View**: A camada responsável pela interface de usuário.
-- **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-  
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
+A aplicação segue o padrão de arquitetura MVC (Model-View-Controller) e está dividida em duas camadas principais: Front-end e Back-end.
+
+**Front-end**
+- **HTML, CSS e JS**: Tecnologias base para a construção da interface do usuário
+- **EJS**: Template engine utilizada para renderizar as views dinâmicas
+- **Bootstrap**: Framework CSS para estilização e responsividade
+- **JavaScript**: Linguagem de programação para interatividade do lado do cliente
+
+**Back-end**
+- **Node.js**: Ambiente de execução para JavaScript no lado do servidor
+- **Express.js**: Framework para criar a API RESTful que gerencia as requisições e respostas
+- **PostgreSQL**: Banco de dados relacional utilizado para armazenar as informações da aplicação
+- **EJS**: Template engine para renderização de views no servidor
+
+**Estrutura MVC**
+
+**Model (Camada de Dados)**
+- `models/userModel.js`: Implementa a lógica de negócios relacionada aos usuários
+- `models/questionModel.js`: Gerencia as questões e suas respostas
+- `models/exerciseModel.js`: Controla os exercícios e seus tipos
+- `models/lessonModel.js`: Administra as lições e seu conteúdo
+- `models/contentModel.js`: Gerencia os módulos de conteúdo
+- `models/feedbackModel.js`: Controla o feedback dos usuários
+- `models/progressModel.js`: Acompanha o progresso dos usuários
+
+**View (Camada de Apresentação)**
+- `views/`: Diretório contendo os templates EJS
+  - `views/layouts/`: Templates base para as páginas
+  - `views/partials/`: Componentes reutilizáveis
+  - `views/pages/`: Páginas específicas da aplicação
+
+**Controller (Camada de Controle)**
+- `controllers/userController.js`: Gerencia as operações relacionadas a usuários
+- `controllers/questionController.js`: Controla as operações de questões
+- `controllers/exerciseController.js`: Administra os exercícios
+- `controllers/lessonController.js`: Gerencia as lições
+- `controllers/contentController.js`: Controla o conteúdo
+- `controllers/feedbackController.js`: Administra o feedback
+- `controllers/progressController.js`: Controla o progresso
+
+**Configuração e Rotas**
+- `config/database.js`: Configuração da conexão com o banco de dados
+- `routes/`: Diretório contendo as definições de rotas
+  - `routes/userRoutes.js`: Rotas para operações de usuários
+  - `routes/questionRoutes.js`: Rotas para questões
+  - `routes/exerciseRoutes.js`: Rotas para exercícios
+  - `routes/lessonRoutes.js`: Rotas para lições
+  - `routes/contentRoutes.js`: Rotas para conteúdo
+  - `routes/feedbackRoutes.js`: Rotas para feedback
+  - `routes/progressRoutes.js`: Rotas para progresso
+  - `routes/frontRoutes.js`: Rotas para o frontend
+
+**Fluxo de Dados**
+1. O usuário interage com a interface no navegador
+2. As requisições são enviadas para as rotas apropriadas
+3. Os controllers processam as requisições e interagem com os models
+4. Os models realizam operações no banco de dados
+5. Os resultados são retornados através dos controllers
+6. As views são renderizadas com os dados atualizados
+7. A resposta é enviada de volta ao usuário
+
+Esta arquitetura modular promove a separação de responsabilidades, facilitando a manutenção, escalabilidade e testes da aplicação.
 
 ### 3.3. Wireframes (Semana 03)
 
