@@ -1,0 +1,218 @@
+/* Lessons page specific styles */
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: var(--space-xl) 0;
+}
+
+.page-header h1 {
+    font-size: var(--font-size-xxl);
+    color: var(--primary);
+    margin-bottom: var(--space-m);
+}
+
+.header-description {
+    font-size: var(--font-size-l);
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Filter section */
+.filter-options {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-m);
+    margin: var(--space-l) 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    padding: var(--space-s) var(--space-m);
+    border-radius: var(--space-s);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    color: var(--bg);
+    border-color: var(--primary);
+}
+
+/* Lessons Grid */
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-l);
+    padding: var(--space-l) 0 var(--space-xl);
+}
+
+.lesson-card {
+    background: var(--bg);
+    border-radius: var(--space-s);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.lesson-card:hover {
+    border-color: var(--primary);
+}
+
+.lesson-image {
+    height: 120px;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson-content {
+    padding: var(--space-m);
+}
+
+.lesson-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-m);
+}
+
+/* Difficulty badges */
+.difficulty {
+    padding: var(--space-xs) var(--space-m);
+    border-radius: 20px;
+    font-size: var(--font-size-s);
+    font-weight: 600;
+}
+
+.difficulty.beginner { 
+    background: #e6f4ea; 
+    color: #137333; 
+}
+
+.difficulty.intermediate { 
+    background: #fef3e6; 
+    color: #ea580c; 
+}
+
+.difficulty.advanced { 
+    background: #fde8e8; 
+    color: #dc2626; 
+}
+
+.duration {
+    color: var(--text-light);
+    font-size: var(--font-size-s);
+}
+
+.lesson-content h3 {
+    font-size: var(--font-size-l);
+    font-weight: bold;
+    margin-bottom: var(--space-s);
+    color: var(--text);
+}
+
+.lesson-content p {
+    color: var(--text-light);
+    margin-bottom: var(--space-m);
+}
+
+/* Progress bar */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: var(--space-s);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+}
+
+.progress-text {
+    font-size: var(--font-size-s);
+    color: var(--text-light);
+}
+
+/* Lesson Stats */
+.lesson-stats {
+    display: flex;
+    gap: var(--space-l);
+    margin-bottom: var(--space-m);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: var(--font-size-l);
+    font-weight: bold;
+    color: var(--primary);
+    display: block;
+}
+
+.stat-label {
+    font-size: var(--font-size-s);
+    color: var(--text-light);
+}
+
+/* Lesson Progress */
+.lesson-progress {
+    margin-bottom: var(--space-m);
+}
+
+/* Lesson Button */
+.lesson-btn {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+/* Lesson Icon */
+.lesson-icon {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lessons-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .page-header h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .header-description {
+        font-size: var(--font-size-m);
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .lesson-meta {
+        flex-direction: column;
+        gap: var(--space-s);
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %> - Programming Timeline</title>    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Base styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Page specific styles -->
+    <%- typeof style !== 'undefined' ? style : '' %>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <span>&lt;/&gt;</span>
+                </div>
+                <span class="brand-text">Programming Timeline</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/lessons">Lessons</a>
+                <a href="/challenges">Challenges</a>
+                <a href="/courses">Courses</a>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-icon">🔍</div>
+                <button class="btn-outline">Join</button>
+                <button class="btn-primary">Start Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Programming Timeline</h3>
+                    <p>Learn programming step by step with structured courses and interactive challenges.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/lessons">Lessons</a></li>
+                        <li><a href="/challenges">Challenges</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:support@programming-timeline.com">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Programming Timeline. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Progress Checker Script -->
+    <script src="/js/progress-checker.js"></script>
+    
+    <% if (typeof additionalJS !== 'undefined') { %>
+        <% additionalJS.forEach(function(js) { %>
+            <script src="<%= js %>"></script>
+        <% }); %>
+    <% } %>
+</body>
+</html> 
