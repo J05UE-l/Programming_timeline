@@ -167,12 +167,52 @@ Esta arquitetura modular promove a separação de responsabilidades, facilitando
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+Para acessar a explicação dos endpoints utilizados, clique neste [link](/documentos/descricao.md)
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+O frontend da aplicação web Programming Timeline foi projetado para fornecer uma experiência de usuário limpa, moderna e intuitiva para o aprendizado de programação. A interface é estruturada para guiar os usuários por um caminho de aprendizado claro, desde conceitos fundamentais até desafios práticos, permitindo ao mesmo tempo um fácil acompanhamento do progresso.
+Página Inicial
 
+A página inicial serve como o principal ponto de entrada, comunicando imediatamente a proposta de valor da plataforma: "Domine a Programação Passo a Passo".
+
+    Seção Principal (Hero Section): Um título de destaque é combinado com um breve texto explicativo e um trecho de código para atrair visualmente os aspirantes a desenvolvedores. As principais chamadas para ação (calls-to-action), "Começar a Aprender" e "Ver Desafios", estão claramente visíveis, guiando novos usuários em direção ao conteúdo principal.
+    Recursos Principais: Abaixo da dobra, três benefícios centrais da plataforma são destacados com ícones e descrições curtas:
+        Aprendizado Estruturado: Enfatiza o currículo organizado.
+        Projetos Práticos: Destaca a importância da aplicação prática.
+        Acompanhe o Progresso: Mostra a capacidade de monitorar as conquistas de aprendizado.
+    Chamada para Ação Final: A página termina com outra seção "Pronto para Começar sua Jornada na Programação?" para incentivar o cadastro e o engajamento do usuário.
+
+Trilha de Aprendizagem (Cursos)
+
+Esta seção apresenta os cursos disponíveis em um layout limpo e baseado em cartões, permitindo que os usuários naveguem e selecionem facilmente a trilha de aprendizado desejada.
+
+    Sistema de Filtros: Os usuários podem filtrar os cursos por nível de dificuldade (Iniciante, Intermediário, Avançado), tornando simples encontrar conteúdo apropriado para seu nível de habilidade.
+    Cartões de Curso: Cada cartão fornece informações essenciais de forma rápida:
+        Título do curso (ex: Fundamentos de Python, Desenvolvimento com React).
+        Etiqueta de dificuldade e duração estimada.
+        Número de lições e exercícios.
+        Um botão "Começar a Aprender" para mergulhar diretamente no curso.
+        Status de progresso (ex: "NÃO INICIADO").
+
+Desafios
+
+A seção "Teste Suas Habilidades" foi projetada para ajudar os usuários a aplicar seus conhecimentos por meio de desafios práticos e baseados em projetos que simulam tarefas do mundo real.
+
+    Visão Geral dos Desafios: Métricas-chave como o número total de desafios, níveis de dificuldade e desafios concluídos são exibidas de forma proeminente.
+    Cartões de Desafio: Semelhante à página de cursos, os desafios são apresentados em um formato de cartão e podem ser filtrados por dificuldade. Cada cartão inclui:
+        Título do desafio (ex: Calculadora em Python, Painel de Clima).
+        Uma breve descrição do projeto.
+        Tempo estimado e pontos de experiência (XP) concedidos.
+        As tecnologias necessárias (ex: Python, JavaScript, HTML).
+
+Gerenciamento de Cursos (Visão do Admin)
+
+Esta interface de backend ou voltada para o administrador permite que os administradores gerenciem o conteúdo da plataforma de forma transparente.
+
+    Gerenciamento de Conteúdo: O layout é uma lista direta dos cursos existentes.
+    Ações do Admin: Para cada curso, os administradores têm as opções de "Editar" ou "Excluir", proporcionando controle total sobre os materiais de aprendizagem.
+    Adicionando Novo Conteúdo: Um botão "Adicionar novo Curso" permite a fácil expansão do catálogo de cursos. A interface é funcional e prioriza a eficiência para criadores e gerentes de conteúdo.
 ---
 
 ## <a name="c4"></a>4. Desenvolvimento da Aplicação Web (Semana 8)
