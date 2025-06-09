@@ -37,6 +37,8 @@ class CoursesManager {
         this.setupModalEventListeners();
     }
 
+
+
     // Setup modal event listeners
     setupModalEventListeners() {
         // Course modal
@@ -146,11 +148,29 @@ class CoursesManager {
             return;
         }
 
-        coursesGrid.innerHTML = this.courses.map(course => `
-            <div class="course-card" data-course-id="${course.id}">
+        this.filteredCourses = this.courses; // Initialize filtered courses
+        this.renderFilteredCourses();
+    }
+
+    // Render filtered courses
+    renderFilteredCourses(courses = this.filteredCourses) {
+        const coursesGrid = document.getElementById('coursesGrid');
+        if (!coursesGrid) return;
+
+        if (courses.length === 0) {
+            coursesGrid.innerHTML = `
+                <div class="empty-state">
+                    <h3>No courses found</h3>
+                    <p>No courses match the selected filter.</p>
+                </div>
+            `;
+            return;
+        }
+
+        coursesGrid.innerHTML = courses.map(course => `
+            <div class="course-card" data-course-id="${course.id}" data-difficulty="${course.difficulty.toLowerCase()}">
                 <div class="course-header">
                     <h3 class="course-title">${this.escapeHtml(course.title)}</h3>
-                    <span class="course-difficulty ${course.difficulty}">${course.difficulty}</span>
                 </div>
                 <p class="course-description">${this.escapeHtml(course.description)}</p>
                 <div class="course-actions-row">
@@ -416,6 +436,8 @@ class CoursesManager {
             }, 5000);
         }
     }
+
+
 
     // Escape HTML to prevent XSS
     escapeHtml(text) {

@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 router.get('/lessons', (req, res) => {
   res.render('pages/lessons', {
     pageTitle: 'Lessons - Programming Timeline',
-    style: '<link rel="stylesheet" href="/css/lessons.css">'
+    style: '<link rel="stylesheet" href="/css/lessons.css">',
+    additionalJS: ['/js/lessons-filter.js']
   });
 });
 

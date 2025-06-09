@@ -14,7 +14,7 @@ class ProgressChecker {
     getCurrentUserId() {
         // For now, using a test user ID - replace with your actual user ID logic
         // This could come from session storage, local storage, or a cookie
-        return localStorage.getItem('userId') || '3535c99f-fada-403d-a6be-886b67fc5dfc8';
+        return localStorage.getItem('userId') || '3535c99f-fada-403d-a6be-886b67fc5dfc';
     }
 
     // Helper function to set user ID for testing

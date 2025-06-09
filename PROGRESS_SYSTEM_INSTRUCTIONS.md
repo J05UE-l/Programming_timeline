@@ -20,7 +20,7 @@ This system automatically checks user progress from your PostgreSQL database and
 ### 1. Set a Test User ID
 Open browser console and run:
 ```javascript
-progressChecker.setUserId('3535c99f-fada-403d-a6be-886b67fc5dfc8');
+progressChecker.setUserId('3535c99f-fada-403d-a6be-886b67fc5dfc');
 ```
 
 ### 2. View Progress
@@ -52,7 +52,7 @@ Click any lesson button to mark it as completed in the database.
 
 ## User IDs from Database
 Based on your database, available user IDs:
-- `3535c99f-fada-403d-a6be-886b67fc5dfc8`
+- `3535c99f-fada-403d-a6be-886b67fc5dfc`
 - `b6b25efc-a29c-4704-8417-c94192267845`
 - `ad8aad6b-1a00-4a41-b986-e3e9dba42a23`
 
