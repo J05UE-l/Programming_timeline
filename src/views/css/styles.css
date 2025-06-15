@@ -47,6 +47,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -66,6 +67,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
 }
 
 .btn-outline:hover {
@@ -76,6 +78,7 @@ body {
 .btn-large {
     padding: 0.75rem 2rem;
     font-size: 1.125rem;
+    text-decoration: none;
 }
 
 /* Navigation */
@@ -1165,6 +1168,28 @@ body {
     flex-wrap: wrap;
 }
 
+.cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.cta-content p {
+    font-size: 1.25rem;
+    color: #6b7280;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
 /* Footer */
 .footer {
     background: #1f2937;
@@ -1238,6 +1263,11 @@ body {
 .footer-bottom p {
     color: #9ca3af;
     font-size: 0.9rem;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: rgb(183, 179, 179);
 }
 
 /* Responsive Styles */

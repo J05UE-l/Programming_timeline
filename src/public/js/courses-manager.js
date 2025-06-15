@@ -99,6 +99,7 @@ class CoursesManager {
         try {
             this.showLoading();
             
+            // Make sure we're using the correct API endpoint
             const response = await fetch('/courses/api', {
                 method: 'GET',
                 headers: {
@@ -111,10 +112,11 @@ class CoursesManager {
             }
 
             const data = await response.json();
+            console.log('API response:', data); // Debug log
             
             if (data.success) {
-                this.courses = data.courses;
-                this.renderCourses();
+                this.courses = data.courses || [];
+                this.renderCourses(this.courses);
             } else {
                 this.showMessage('Failed to load courses', 'error');
                 this.renderEmptyState();
@@ -139,39 +141,20 @@ class CoursesManager {
     }
 
     // Render courses grid
-    renderCourses() {
+    renderCourses(courses = null) {
+        const coursesToRender = courses || this.courses;
         const coursesGrid = document.getElementById('coursesGrid');
-        if (!coursesGrid) return;
-
-        if (this.courses.length === 0) {
+        
+        if (!coursesToRender || coursesToRender.length === 0) {
             this.renderEmptyState();
             return;
         }
 
-        this.filteredCourses = this.courses; // Initialize filtered courses
-        this.renderFilteredCourses();
-    }
-
-    // Render filtered courses
-    renderFilteredCourses(courses = this.filteredCourses) {
-        const coursesGrid = document.getElementById('coursesGrid');
-        if (!coursesGrid) return;
-
-        if (courses.length === 0) {
-            coursesGrid.innerHTML = `
-                <div class="empty-state">
-                    <h3>No courses found</h3>
-                    <p>No courses match the selected filter.</p>
-                </div>
-            `;
-            return;
-        }
-
-        coursesGrid.innerHTML = courses.map(course => `
-            <div class="course-card" data-course-id="${course.id}" data-difficulty="${course.difficulty.toLowerCase()}">
-                <div class="course-header">
-                    <h3 class="course-title">${this.escapeHtml(course.title)}</h3>
-                </div>
+        console.log('Rendering courses:', coursesToRender); // Debug log
+        
+        coursesGrid.innerHTML = coursesToRender.map(course => `
+            <div class="course-card" data-course-id="${course.id}" data-difficulty="${course.difficulty ? course.difficulty.toLowerCase() : 'beginner'}">
+                <h3 class="course-title">${this.escapeHtml(course.title)}</h3>
                 <p class="course-description">${this.escapeHtml(course.description)}</p>
                 <div class="course-actions-row">
                     <button class="btn-small btn-edit" onclick="coursesManager.openEditModal('${course.id}')">
@@ -241,6 +224,8 @@ class CoursesManager {
 
     // Open delete modal
     openDeleteModal(courseId, courseTitle) {
+        console.log('Opening delete modal for course:', courseId, courseTitle); // Debug log
+        
         this.currentEditingId = courseId;
         
         const deleteCourseName = document.getElementById('deleteCourseName');
@@ -248,7 +233,13 @@ class CoursesManager {
             deleteCourseName.textContent = courseTitle;
         }
         
-        this.showDeleteModal();
+        const deleteModal = document.getElementById('deleteModal');
+        if (deleteModal) {
+            deleteModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        } else {
+            console.error('Delete modal element not found!');
+        }
     }
 
     // Show modal
