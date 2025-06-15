@@ -8,6 +8,8 @@ router.get('/api', async (req, res) => {
         const query = 'SELECT id, title, description, difficulty FROM courses ORDER BY title';
         const result = await db.query(query);
         
+        console.log('Courses API response:', result.rows); // Debug log
+        
         res.json({
             success: true,
             courses: result.rows
