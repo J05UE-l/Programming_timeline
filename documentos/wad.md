@@ -160,7 +160,6 @@ Esta arquitetura modular promove a separação de responsabilidades, facilitando
 
 *Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
 
-
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
 
 *Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
@@ -224,10 +223,46 @@ Esta interface de backend ou voltada para o administrador permite que os adminis
 
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
+O projeto Programming Timeline alcançou seu objetivo principal de criar uma plataforma estruturada para auxiliar iniciantes em programação, oferecendo um caminho de aprendizado claro e progressivo. A aplicação se destaca pelos seguintes pontos fortes:
 
+- **Arquitetura modular MVC** que facilita manutenção e escalabilidade
+- **Sistema de trilhas de aprendizado** organizadas por nível de dificuldade
+- **Interface intuitiva** com cartões de curso e sistema de filtros
+- **Acompanhamento visual de progresso** que motiva os usuários a continuarem aprendendo
+- **Desafios práticos** que permitem aplicação do conhecimento em cenários realistas
 
+Entretanto, para que a plataforma atinja seu potencial completo, identificamos diversas oportunidades de aprimoramento para trabalhos futuros:
+
+1. **Sistema de autenticação robusto**:
+   - Implementação de login/cadastro com diferentes níveis de permissão
+   - Integração com provedores OAuth (Google, GitHub)
+   - Perfis de usuário personalizáveis com histórico detalhado de progresso
+
+2. **Aprimoramentos de design e experiência**:
+   - Refinamento da responsividade para dispositivos móveis
+   - Implementação de temas claro/escuro
+   - Melhorias de acessibilidade (WCAG 2.1)
+   - Animações e transições mais fluidas entre páginas
+
+3. **Expansão de conteúdo educacional**:
+   - Criação de novas trilhas para linguagens e frameworks populares
+   - Desenvolvimento de um editor de código integrado para exercícios práticos
+   - Sistema de avaliação automática de código com feedback instantâneo
+   - Conteúdo em vídeo e texto para diferentes estilos de aprendizado
+
+4. **Recursos de comunidade e gamificação**:
+   - Fórum de discussão para dúvidas e compartilhamento de conhecimento
+   - Sistema de conquistas e medalhas para incentivar a continuidade
+   - Ranking de usuários e desafios competitivos
+   - Funcionalidade de grupos de estudo e aprendizado colaborativo
+
+5. **Infraestrutura e performance**:
+   - Otimização de consultas ao banco de dados
+   - Implementação de cache para conteúdos estáticos
+   - Monitoramento de desempenho e análise de uso
+   - Preparação para escalabilidade com aumento de usuários
+
+A implementação dessas melhorias transformará o Programming Timeline em uma ferramenta ainda mais valiosa para estudantes de programação, criando um ecossistema completo de aprendizado que acompanha o usuário desde os conceitos básicos até projetos avançados, sempre mantendo o foco na experiência pedagógica estruturada e na aplicação prática do conhecimento.
 
 ## <a name="c5"></a>5. Referências
 
