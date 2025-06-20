@@ -218,8 +218,7 @@ Esta interface de backend ou voltada para o administrador permite que os adminis
 
 ### 4.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+Para um video demonstrativo, acesse o link do [vídeo](https://www.youtube.com/watch?v=V6wSQuPFwRQ)
 
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
